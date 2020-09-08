@@ -37,10 +37,10 @@ def main(str1, str2):
 """
 
 if __name__ == "__main__":
-		print(main(3.5, 'str'))
-		print(main('string', []))
-		print(main('laarn', 'learn'))
-		print(main('learn', 'learn'))
-		print(main('Эта строка длиннее', 'А эта не \'learn\''))
-		print(main('larnasdfasf', 'learn'))
-		print(main('nrael', 'asarn'))
+	print(main(3.5, 'str'))
+	print(main('string', []))
+	print(main('laarn', 'learn'))
+	print(main('learn', 'learn'))
+	print(main('Эта строка длиннее', 'А эта не \'learn\''))
+	print(main('larnasdfasf', 'learn'))
+	print(main('nrael', 'asarn'))
