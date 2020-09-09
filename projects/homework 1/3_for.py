@@ -15,6 +15,10 @@ def main():
     Эта функция вызывается автоматически при запуске скрипта в консоли
     В ней надо заменить pass на ваш код
     """
+    school = [{'school_class': '4a', 'scores': [3,4,4,5,2]}, {'school_class': '5b', 'scores': [2,3,4,5,2,5]}, {'school_class': '6c', 'scores': [4,5,4,5,3,4,2]}, {'school_class': '7a', 'scores': [3,3,2,3,4,4,5,2]}, {'school_class': '8c', 'scores': [3,3,3,5,2,2,5]}, {'school_class': '7b', 'scores': [5,5,5,5,3,4,4]},]
+    avg_all_school = 0
+    avg_by_class = []
+    
     pass
     
 if __name__ == "__main__":
