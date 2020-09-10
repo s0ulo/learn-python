@@ -10,21 +10,11 @@
     
 """
 
-dct = {"Как тебя зовут?": "Геннадий", \
-	"Где работаешь?": "На стройке", \
-	"Как дела?": "Хорошо!", \
-	"Женат?": "Нет!", \
-	"Что делаешь?": "Программирую"}
-
 def ask_user():
-	user_q = input('Какие вопросы? \n> ')
-	while user_q in dct:
-		try:
-			print(f'-- {dct[user_q]}')
-			user_q = input('Еще вопросы? \n> ')
-		except KeyboardInterrupt:
-			print('\nПока!')
-			break
+    """
+    Замените pass на ваш код
+    """
+    pass
     
 if __name__ == "__main__":
     ask_user()

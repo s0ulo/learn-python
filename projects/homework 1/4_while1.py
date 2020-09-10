@@ -9,10 +9,13 @@
    
 """
 
+
 def ask_user():
-	usr_answr = ''
-	while usr_answr != 'Хорошо!':
-		usr_answr = input('Как дела? ')
+    """
+    Замените pass на ваш код
+    """
+    pass
+
     
 if __name__ == "__main__":
     ask_user()
