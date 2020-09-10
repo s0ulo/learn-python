@@ -1,1 +1,2 @@
-# learn-python
+Learn Python: Course Repo
+================================
