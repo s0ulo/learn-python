@@ -16,6 +16,8 @@
 
 def main():
 	age = int(float(input('Ваш возраст: ')))
+	reply = 'Эржан, вставай, на работу пора!'
+
 	if age <= 0:
 		reply = 'Попробуй в другой раз.'
 	elif age <=6:
@@ -24,8 +26,7 @@ def main():
 		reply = 'Школа.'
 	elif age <= 23:
 		reply = 'ВУЗ.'
-	else:
-		reply = 'Эржан, вставай, на работу пора!'
+
 	return reply
 
 if __name__ == "__main__":

@@ -14,9 +14,11 @@
 
 def get_summ(num_one, num_two):
     try:
-      return int(num_one) + int(num_two)
+      a = int(num_one)
+      b = int(num_two)
     except ValueError:
       raise ValueError
+    return a + b
     
 if __name__ == "__main__":
     print(get_summ(2, 2))
