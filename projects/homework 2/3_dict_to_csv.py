@@ -1,3 +1,4 @@
+import csv
 """
 Домашнее задание №2
 
@@ -9,11 +10,19 @@
 """
 
 def main():
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
+    dct = [
+        {'name': 'John', 'age': 19, 'job': "Intern",}, 
+        {'name': 'Aaron', 'age': 22, 'job': "Manager",}, 
+        {'name': 'Scarlet', 'age': 30, 'job': "Accountant",}, 
+        {'name': 'Mako', 'age': 49, 'job': "Janitor",},
+        {'name': 'Vik', 'age': 27, 'job': "Engineer",}
+    ]
+    with open('export.csv', 'w', encoding='utf-8') as f:
+        fields = ['name', 'age', 'job']
+        writer = csv.DictWriter(f, fields, delimiter=';')
+        writer.writeheader()
+        for user in dct:
+            writer.writerow(user)
 
 if __name__ == "__main__":
     main()
