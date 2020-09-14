@@ -204,3 +204,4 @@ $RECYCLE.BIN/
 *.log
 .idea/
 settings.py
+temp.py
