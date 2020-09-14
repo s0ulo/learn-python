@@ -15,33 +15,36 @@
 import logging
 import settings
 import ephem
-import importlib
+from importlib import getattr
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 logging.basicConfig(format='%(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO,
                     filename='bot.log'
-)
+                    )
 
 
 PROXY = {
     'proxy_url': 'socks5://t1.learn.python.ru:1080',
     'urllib3_proxy_kwargs': {
-        'username': 'learn', 
+        'username': 'learn',
         'password': 'python'
     }
 }
+
 
 def greet_user(bot, update):
     text = 'Вызван /start'
     print(text)
     update.message.reply_text(text)
 
+
 def talk_to_me(bot, update):
-    user_text = update.message.text 
+    user_text = update.message.text
     print(user_text)
     update.message.reply_text(user_text)
- 
+
+
 def get_constellation(bot, update):
     planet = update.message.text.split()[-1].title()
     user = ephem.Observer()
@@ -52,9 +55,11 @@ def get_constellation(bot, update):
             planet_class = getattr(ephem, planet)
             planet_compute = planet_class(user.date)
             constellation = ephem.constellation(planet_compute)[-1]
-            update.message.reply_text(f'{planet.title()} today is in the {constellation} constellation')
+            update.message.reply_text(
+                f'{planet.title()} today is in the {constellation} constellation')
     except AttributeError:
         update.message.reply_text(f'{planet} is not a valid planet')
+
 
 def main():
     mybot = Updater(settings.API_KEY, use_context=True, request_kwargs=PROXY)
@@ -66,10 +71,10 @@ def main():
     dp.add_handler(MessageHandler(Filters.text, get_constellation))
 
     logging.info("Бот стартовал")
-    
+
     mybot.start_polling()
     mybot.idle()
-       
+
 
 if __name__ == "__main__":
     main()

@@ -9,17 +9,18 @@
   сложения
 * Оба аргумента нужно приводить к целому числу при помощи int() и 
   перехватывать исключение ValueError если приведение типов не сработало
-    
 """
+
 
 def get_summ(num_one, num_two):
     try:
-      a = int(num_one)
-      b = int(num_two)
+        a = int(num_one)
+        b = int(num_two)
     except ValueError:
-      raise ValueError
+        raise ValueError
     return a + b
-    
+
+
 if __name__ == "__main__":
     print(get_summ(2, 2))
     print(get_summ(3, "3"))
