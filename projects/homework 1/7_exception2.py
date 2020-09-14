@@ -13,10 +13,12 @@
 """
 
 def get_summ(num_one, num_two):
-    """
-    Замените pass на ваш код
-    """
-    pass
+    try:
+      a = int(num_one)
+      b = int(num_two)
+    except ValueError:
+      raise ValueError
+    return a + b
     
 if __name__ == "__main__":
     print(get_summ(2, 2))
