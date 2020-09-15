@@ -10,21 +10,17 @@ from datetime import datetime, timedelta
 
 """
 
-def print_days():
-    dt_now = datetime.now()
-    print(dt_now)
-    
-    delta_1 = timedelta(days=1)
-    dt_yesterday = dt_now - delta_1
-    print(dt_yesterday)
 
-    delta_30 = timedelta(days=30)
-    dt_minus_30 = dt_now - delta_30
-    print(dt_minus_30)
+def print_days():
+    print('Yesterday: ' + (datetime.now() - timedelta(days=1)).strftime('%d.%m.%Y'))
+    print('Today: ' + (datetime.now().strftime('%d.%m.%Y')))
+    print('30 days ago: ' + (datetime.now() -
+                             timedelta(days=30)).strftime('%d.%m.%Y'))
 
 
 def str_2_datetime(date_string):
     return datetime.strptime(date_string, '%m/%d/%y %H:%M:%S.%f')
+
 
 if __name__ == "__main__":
     print_days()
