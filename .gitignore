@@ -203,5 +203,5 @@ $RECYCLE.BIN/
 # Project-specific stuff
 *.log
 .idea/
-settings.py
+config.py
 temp.py
