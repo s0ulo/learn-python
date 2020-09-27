@@ -205,3 +205,4 @@ $RECYCLE.BIN/
 .idea/
 config.py
 temp.py
+*.db
