@@ -15,4 +15,18 @@ class News(db.Model):
     text = db.Column(db.Text, nullable=True)
 
     def __repr__(self):
-        return '<News {} {}>'.format(self.title, self.url)
+        return f"<News {self.title} {self.url}>"
+
+
+class User(db.Model):
+    """
+    Database Model for Users
+    """
+
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(50), index=True, unique=True)
+    password = db.Column(db.String(128))
+    role = db.Column(db.String(10), index=True)
+
+    def __repr__(self):
+        return f"<User: {self.username}>"
