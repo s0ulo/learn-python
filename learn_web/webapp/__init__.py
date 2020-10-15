@@ -53,7 +53,7 @@ def create_app():
                 User.username == form.username.data
             ).first()
             if user and user.check_password(form.password.data):
-                login_user(user)
+                login_user(user, remember=form.remember_me.data)
                 flash("Authorization success!")
                 return redirect(url_for("index"))
         flash("Login or password not found!")
