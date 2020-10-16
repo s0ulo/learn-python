@@ -15,6 +15,7 @@ class LoginForm(FlaskForm):
         render_kw={"class": "form-control"},
     )
     submit = SubmitField("Submit", render_kw={"class": "btn btn-primary"})
+
     remember_me = BooleanField(
         "Stay signed in", default=True, render_kw={"class": "form-check-input"}
     )
