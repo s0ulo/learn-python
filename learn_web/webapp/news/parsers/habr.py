@@ -2,6 +2,9 @@ from datetime import datetime, timedelta
 import locale
 import platform
 
+from webapp.db import db
+from webapp.news.models import News
+
 from bs4 import BeautifulSoup
 
 from webapp.news.parsers.utils import get_html, save_news
@@ -41,3 +44,16 @@ def get_news_snippets():
             published = news.find("span", class_="post__time").text
             published = parse_habr_date(published)
             save_news(title, url, published)
+
+
+def get_news_content():
+    news_without_text = News.query.filter(News.text.is_(None))
+    for news in news_without_text:
+        html = get_html(news.url)
+        if html:
+            soup = BeautifulSoup(html, "html.parser")
+            news_text = soup.find("div", class_="post__text").decode_contents()
+            if news_text:
+                news.text = news_text
+                db.session.add(news)
+                db.session.commit()
