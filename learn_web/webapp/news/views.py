@@ -5,8 +5,6 @@ from flask import (
     current_app,
     render_template,
     redirect,
-    request,
-    url_for,
 )
 from flask_login import current_user, login_required
 
@@ -14,6 +12,7 @@ from webapp.db import db
 from webapp.news.forms import CommentForm
 from webapp.news.models import Comment, News
 from webapp.weather import weather_by_city
+from webapp.utils import get_redirect_target
 
 blueprint = Blueprint("news", __name__)
 
@@ -55,15 +54,14 @@ def single_news(news_id):
 def add_comment():
     form = CommentForm()
     if form.validate_on_submit():
-        if News.query.filter(News.id == form.news_id.data).first():
-            comment = Comment(
-                text=form.comment_text.data,
-                news_id=form.news_id.data,
-                user_id=current_user.id,
-            )
-            db.session.add(comment)
-            db.session.commit()
-            flash("Comment added!")
+        comment = Comment(
+            text=form.comment_text.data,
+            news_id=form.news_id.data,
+            user_id=current_user.id,
+        )
+        db.session.add(comment)
+        db.session.commit()
+        flash("Comment added!")
     else:
         for field, errors in form.errors.items():
             for error in errors:
@@ -72,4 +70,4 @@ def add_comment():
                         getattr(form, field).label.text, error
                     )
                 )
-    return redirect(request.referrer)
+    return redirect(get_redirect_target())
